@@ -9,7 +9,7 @@ app.use(cors({
   origin: [
     "http://localhost:5173",
     "http://localhost:5174",
-    "https://YOUR-FRONTEND.vercel.app"
+    "https://sweet-empanada-995f3f.netlify.app"
   ],
   methods: ["GET", "POST", "OPTIONS"],
   credentials: true
