@@ -5,7 +5,16 @@ require("dotenv").config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "https://sweet-empanada-995f3f.netlify.app"
+  ],
+  methods: ["GET", "POST", "OPTIONS"],
+  credentials: true
+}));
+
 app.use(express.json());
 
 app.post("/send-email", async (req, res) => {
@@ -38,6 +47,7 @@ ${message}
       success: true,
       message: "Email sent successfully",
     });
+
   } catch (error) {
     console.error(error);
 
@@ -48,6 +58,4 @@ ${message}
   }
 });
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
-});
+module.exports = app;
